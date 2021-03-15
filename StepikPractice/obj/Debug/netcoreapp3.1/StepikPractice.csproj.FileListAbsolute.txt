@@ -1,0 +1,12 @@
+/Users/igorpopov/Projects/Lessons1/StepikPractice/bin/Debug/netcoreapp3.1/StepikPractice.deps.json
+/Users/igorpopov/Projects/Lessons1/StepikPractice/bin/Debug/netcoreapp3.1/StepikPractice.runtimeconfig.json
+/Users/igorpopov/Projects/Lessons1/StepikPractice/bin/Debug/netcoreapp3.1/StepikPractice.runtimeconfig.dev.json
+/Users/igorpopov/Projects/Lessons1/StepikPractice/bin/Debug/netcoreapp3.1/StepikPractice.dll
+/Users/igorpopov/Projects/Lessons1/StepikPractice/bin/Debug/netcoreapp3.1/StepikPractice.pdb
+/Users/igorpopov/Projects/Lessons1/StepikPractice/obj/Debug/netcoreapp3.1/StepikPractice.csprojAssemblyReference.cache
+/Users/igorpopov/Projects/Lessons1/StepikPractice/obj/Debug/netcoreapp3.1/StepikPractice.AssemblyInfoInputs.cache
+/Users/igorpopov/Projects/Lessons1/StepikPractice/obj/Debug/netcoreapp3.1/StepikPractice.AssemblyInfo.cs
+/Users/igorpopov/Projects/Lessons1/StepikPractice/obj/Debug/netcoreapp3.1/StepikPractice.csproj.CoreCompileInputs.cache
+/Users/igorpopov/Projects/Lessons1/StepikPractice/obj/Debug/netcoreapp3.1/StepikPractice.dll
+/Users/igorpopov/Projects/Lessons1/StepikPractice/obj/Debug/netcoreapp3.1/StepikPractice.pdb
+/Users/igorpopov/Projects/Lessons1/StepikPractice/obj/Debug/netcoreapp3.1/StepikPractice.genruntimeconfig.cache
