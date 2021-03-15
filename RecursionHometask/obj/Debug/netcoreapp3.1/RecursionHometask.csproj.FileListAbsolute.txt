@@ -1,0 +1,12 @@
+/Users/igorpopov/Projects/Lessons1/RecursionHometask/bin/Debug/netcoreapp3.1/RecursionHometask.deps.json
+/Users/igorpopov/Projects/Lessons1/RecursionHometask/bin/Debug/netcoreapp3.1/RecursionHometask.runtimeconfig.json
+/Users/igorpopov/Projects/Lessons1/RecursionHometask/bin/Debug/netcoreapp3.1/RecursionHometask.runtimeconfig.dev.json
+/Users/igorpopov/Projects/Lessons1/RecursionHometask/bin/Debug/netcoreapp3.1/RecursionHometask.dll
+/Users/igorpopov/Projects/Lessons1/RecursionHometask/bin/Debug/netcoreapp3.1/RecursionHometask.pdb
+/Users/igorpopov/Projects/Lessons1/RecursionHometask/obj/Debug/netcoreapp3.1/RecursionHometask.csprojAssemblyReference.cache
+/Users/igorpopov/Projects/Lessons1/RecursionHometask/obj/Debug/netcoreapp3.1/RecursionHometask.AssemblyInfoInputs.cache
+/Users/igorpopov/Projects/Lessons1/RecursionHometask/obj/Debug/netcoreapp3.1/RecursionHometask.AssemblyInfo.cs
+/Users/igorpopov/Projects/Lessons1/RecursionHometask/obj/Debug/netcoreapp3.1/RecursionHometask.csproj.CoreCompileInputs.cache
+/Users/igorpopov/Projects/Lessons1/RecursionHometask/obj/Debug/netcoreapp3.1/RecursionHometask.dll
+/Users/igorpopov/Projects/Lessons1/RecursionHometask/obj/Debug/netcoreapp3.1/RecursionHometask.pdb
+/Users/igorpopov/Projects/Lessons1/RecursionHometask/obj/Debug/netcoreapp3.1/RecursionHometask.genruntimeconfig.cache
