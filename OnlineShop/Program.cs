@@ -8,23 +8,30 @@ namespace OnlineShop
         public class User
         {
             public string Name;
-            public bool IsAdmin;
-            public Order Orders;
-            public User(string name)
+            public string Password;
+            public List<Order> Orders;
+            public User(string name, string password)
             {
                 Name = name;
-                IsAdmin = false;
+                Password = password;
+
             }
-            public User(string name)
+            public void AddOrder(Order newOrder)
             {
-                Name = name;
-                IsAdmin = true;
-            }
-            public void AddOrder()
-            {
-                
+                Orders = new List<Order>();
+                Orders.Add(newOrder);
             }
 
+        }
+        public class Admin
+        {
+            public string Name;
+            public static string Password;
+            public Admin(string name, string password)
+            {
+                Name = name;
+                Password = password;
+            }
         }
         public class Order
         {
@@ -59,7 +66,7 @@ namespace OnlineShop
         }
         public class Store
         {
-            public List<Product> Products;
+            public static List<Product> Products;
             public List<Product> Basket;
             public List<Order> Orders;
 
@@ -76,6 +83,27 @@ namespace OnlineShop
                 };
                 Basket = new List<Product>();
                 Orders = new List<Order>();
+
+            }
+            public static int ProductCnt()
+            {
+                return Products.Count;
+            }
+
+            public void AddNewProduct(string productName, decimal productPrice)
+            {
+                Products.Add(new Product(productName, productPrice));
+            }
+            public void DeleteProduct(int productNum)
+            {
+                Console.WriteLine($"Продукт {Products[productNum - 1].Name} успешно удален");
+                Products.RemoveAt(productNum - 1);
+            }
+            public void ChangePrice(int productNum)
+            {
+                Console.WriteLine($"Назначте новую цену для продукта {Products[productNum].Name}");
+                decimal newPrice = decimal.Parse(Console.ReadLine());
+                Products[productNum].Price = newPrice;
             }
             public void ShowCatalog()
             {
@@ -112,92 +140,153 @@ namespace OnlineShop
                 }
             }
 
-            public void CreateOrder()
+            public Order CreateOrder()
             {
-                //Передать продукты из корзины в доставку
                 Order newOrder = new Order(Basket);
                 Orders.Add(newOrder);
                 Basket = new List<Product>();
                 Console.WriteLine($"\nЗаказ {Orders.Count} товаров на сумму {newOrder.GetFullPrice()} успешно оформлен\n");
+                return newOrder;
             }
         }
 
         static void Main(string[] args)
         {
             Store newStore = new Store();
-            Console.Write("Введите Ваше имя пользователя: ");
+            Console.Write("Введите Ваше имя пользователя:\t");
             string name = Console.ReadLine();
-            if (name == "Admin")
+            Console.Write("\nВведите пароль:\t");
+            string password = Console.ReadLine();
+            if (name == "Admin" && password == "1234")
             {
+                Admin admin = new Admin(name, password);
+                Console.Clear();
+                Console.WriteLine("Вы вошли как Администратор");
+                bool exit = false;
+                while (!exit)
+                {
+                    int checkMenu = 0;
+                    Console.WriteLine("\nВыберите номер действия которое хотите совершить:");
+                    Console.WriteLine("1. Показать каталог продуктов");
+                    Console.WriteLine("2. Добавить товар в каталог продуктов");
+                    Console.WriteLine("3. Поменять цену на продукт");
+                    Console.WriteLine("4. Удалить товар из каталога продуктов");
+                    Console.WriteLine("5. Завершить сеанс");
+                    Console.Write("Ваш выбор: ");
+                    do
+                    {
+                        checkMenu = ShowMenu(newStore);
+                    } while (checkMenu == 0);
 
+                    if (checkMenu == 1)
+                    {
+                        newStore.ShowCatalog();
+                    }
+                    if (checkMenu == 2)
+                    {
+                        Console.WriteLine("Как будет называться новый продукт?");//проверка данных
+                        string newProductName = Console.ReadLine();
+                        Console.WriteLine("Какая цену у нового продукта?");
+                        decimal newProductPrice = decimal.Parse(Console.ReadLine());
+                        newStore.AddNewProduct(newProductName, newProductPrice);
+                    }
+                    if (checkMenu == 3)
+                    {
+                        int answer = 0;
+                        do
+                        {
+                            Console.WriteLine("Введите номер продукта");
+                            answer = CheckAnswerProduct(Console.ReadLine());
+                            if (answer != 0)
+                                newStore.ChangePrice(answer - 1);
+                        } while (answer == 0);
+                    }
+                    if (checkMenu == 4)
+                    {
+                        int answer = 0;
+                        do
+                        {
+                            Console.WriteLine("Введите номер продукта");
+                            answer = CheckAnswerProduct(Console.ReadLine());
+                            if (answer == 0)
+                                continue;
+                            Console.WriteLine("Подтвердите удаление, введите пароль администратора: ");
+                            string confirmation = Console.ReadLine();
+                            if (answer != 0 && confirmation == Admin.Password)
+                                newStore.DeleteProduct(answer);
+                            else
+                            {
+                                Console.WriteLine("Неверный пароль");
+                                answer = 0;
+                            }
+                        } while (answer == 0);
+                    }
+                    if (checkMenu == 5)
+                    {
+                        exit = true;
+                        Console.WriteLine("Сеанс завершен");
+                    }
+                }
             }
             else
             {
-                Order newOrder = 
-                User user = new User(name, newOrder);
-            }
-            bool exit = false;
-            while (!exit)
-            {
-                int checkMenu = 0;
-                Console.WriteLine("\nВыберите номер действия которое хотите совершить:");
-                Console.WriteLine("1. Показать каталог продуктов");
-                Console.WriteLine("2. Показать корзину");
-                Console.WriteLine("3. Добавить продукт в корзину");
-                Console.WriteLine("4. Оформить заказ");
-                Console.WriteLine("5. Завершить покупки");
-                Console.Write("Ваш выбор: ");
-                do
+                User user = new User(name, password);
+                Console.Clear();
+                Console.WriteLine($"Привет {user.Name}!");
+                bool exit = false;
+                while (!exit)
                 {
-                    checkMenu = ShowMenu(newStore);
-                } while (checkMenu == 0);
-
-                if (checkMenu == 1)
-                {
-                    newStore.ShowCatalog();
-                }
-                if (checkMenu == 2)
-                {
-                    newStore.ShowBasket();
-                }
-                if (checkMenu == 3)
-                {
-                    int yes = 1;
-                    while (yes == 1)
+                    int checkMenu = 0;
+                    Console.WriteLine("\nВыберите номер действия которое хотите совершить:");
+                    Console.WriteLine("1. Показать каталог продуктов");
+                    Console.WriteLine("2. Показать корзину");
+                    Console.WriteLine("3. Добавить продукт в корзину");
+                    Console.WriteLine("4. Оформить заказ");
+                    Console.WriteLine("5. Завершить покупки");
+                    Console.Write("Ваш выбор: ");
+                    do
                     {
-                        try
+                        checkMenu = ShowMenu(newStore);
+                    } while (checkMenu == 0);
+
+                    if (checkMenu == 1)
+                    {
+                        newStore.ShowCatalog();
+                    }
+                    if (checkMenu == 2)
+                    {
+                        newStore.ShowBasket();
+                    }
+                    if (checkMenu == 3)
+                    {
+                        int yes = 1;
+                        while (yes == 1)
                         {
-                            Console.WriteLine("Напишите номер продукта который нужно добавить в корзину:");
-                            int productNumber = int.Parse(Console.ReadLine());
-                            if (productNumber > newStore.Products.Count || productNumber <= 0)
+                            int answer = 0;
+                            do
                             {
-                                Console.WriteLine("Введите число из списка!");
-                            }
-                            else
-                            {
-                                newStore.AddToBasket(productNumber);
+                                Console.WriteLine("Напишите номер продукта который нужно добавить в корзину:");
+                                answer = CheckAnswerProduct(Console.ReadLine());
+                                if (answer == 0)
+                                    continue;
+                                newStore.AddToBasket(answer);
                                 Console.WriteLine("Хотите добавить в корзину еще продукт? Наберите да/нет ");
                                 do
                                 {
                                     yes = IsYes(Console.ReadLine());
                                 } while (yes == 0);
-                            }
-                        }
-
-                        catch (Exception)
-                        {
-                            Console.WriteLine("Введите число!");
+                            } while (answer == 0);
                         }
                     }
-                }
-                if (checkMenu == 4)
-                {
-                    newStore.CreateOrder();
-                }
-                if (checkMenu == 5)
-                {
-                    exit = true;
-                    Console.WriteLine("Покупки завершены");
+                    if (checkMenu == 4)
+                    {
+                        user.AddOrder(newStore.CreateOrder());
+                    }
+                    if (checkMenu == 5)
+                    {
+                        exit = true;
+                        Console.WriteLine("Покупки завершены");
+                    }
                 }
             }
         }
@@ -242,6 +331,25 @@ namespace OnlineShop
             else
                 Console.WriteLine("Введите да/нет!");
             return 0;
+        }
+        static int CheckAnswerProduct(string userAnswer)
+        {
+            try
+            {
+                int answer = int.Parse(userAnswer);
+                if (answer > Store.ProductCnt() || answer <= 0)
+                {
+                    Console.WriteLine("Введите число из списка!");
+                    return 0;
+                }
+                else
+                    return answer;
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Введите число!");
+                return 0;
+            }
         }
     }
 }
