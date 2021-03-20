@@ -20,7 +20,7 @@
       "outputPath": "/Users/igorpopov/Projects/Lessons1/RecursionHometask/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/igorpopov/.nuget/NuGet/NuGet.Config"
+        "/Users/igorpopov/.config/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"

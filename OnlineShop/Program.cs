@@ -5,6 +5,27 @@ namespace OnlineShop
 {
     class Program
     {
+        public class User
+        {
+            public string Name;
+            public bool IsAdmin;
+            public Order Orders;
+            public User(string name)
+            {
+                Name = name;
+                IsAdmin = false;
+            }
+            public User(string name)
+            {
+                Name = name;
+                IsAdmin = true;
+            }
+            public void AddOrder()
+            {
+                
+            }
+
+        }
         public class Order
         {
             public List<Product> Products;
@@ -16,6 +37,10 @@ namespace OnlineShop
                 {
                     FullPrice += product.Price;
                 }
+            }
+            public decimal GetFullPrice()
+            {
+                return FullPrice;
             }
         }
         public class Product
@@ -93,22 +118,34 @@ namespace OnlineShop
                 Order newOrder = new Order(Basket);
                 Orders.Add(newOrder);
                 Basket = new List<Product>();
-                Console.WriteLine("\nЗаказ оформлен\n");
+                Console.WriteLine($"\nЗаказ {Orders.Count} товаров на сумму {newOrder.GetFullPrice()} успешно оформлен\n");
             }
         }
 
         static void Main(string[] args)
         {
+            Store newStore = new Store();
+            Console.Write("Введите Ваше имя пользователя: ");
+            string name = Console.ReadLine();
+            if (name == "Admin")
+            {
+
+            }
+            else
+            {
+                Order newOrder = 
+                User user = new User(name, newOrder);
+            }
             bool exit = false;
             while (!exit)
             {
-                Store newStore = new Store();
                 int checkMenu = 0;
                 Console.WriteLine("\nВыберите номер действия которое хотите совершить:");
                 Console.WriteLine("1. Показать каталог продуктов");
                 Console.WriteLine("2. Показать корзину");
-                Console.WriteLine("3. Оформить заказ");
-                Console.WriteLine("4. Завершить покупки");
+                Console.WriteLine("3. Добавить продукт в корзину");
+                Console.WriteLine("4. Оформить заказ");
+                Console.WriteLine("5. Завершить покупки");
                 Console.Write("Ваш выбор: ");
                 do
                 {
@@ -118,53 +155,49 @@ namespace OnlineShop
                 if (checkMenu == 1)
                 {
                     newStore.ShowCatalog();
-                    bool yes = false;
-                    do
-                    {
-                        Console.WriteLine("Хотите добавить продукт в корзину? Наберите да/нет ");
-                        yes = IsYes(Console.ReadLine());
-                        if (yes)
-                        {
-                            Console.WriteLine("Напишите номер продукта который нужно добавить в корзину:");
-                            int productNumber = int.Parse(Console.ReadLine());
-                            newStore.AddToBasket(productNumber);
-                        }
-                    }
-                    while (yes);
                 }
                 if (checkMenu == 2)
                 {
                     newStore.ShowBasket();
-                    bool yes = false;
-                    do
+                }
+                if (checkMenu == 3)
+                {
+                    int yes = 1;
+                    while (yes == 1)
                     {
-                        Console.WriteLine("Хотите добавить продукт в корзину? Наберите да/нет ");
                         try
                         {
-                            yes = IsYes(Console.ReadLine());
-                            if (yes)
+                            Console.WriteLine("Напишите номер продукта который нужно добавить в корзину:");
+                            int productNumber = int.Parse(Console.ReadLine());
+                            if (productNumber > newStore.Products.Count || productNumber <= 0)
                             {
-                                newStore.ShowCatalog();
-                                Console.WriteLine("Напишите номер продукта который нужно добавить в корзину:");
-
-                                int productNumber = int.Parse(Console.ReadLine());
+                                Console.WriteLine("Введите число из списка!");
+                            }
+                            else
+                            {
                                 newStore.AddToBasket(productNumber);
+                                Console.WriteLine("Хотите добавить в корзину еще продукт? Наберите да/нет ");
+                                do
+                                {
+                                    yes = IsYes(Console.ReadLine());
+                                } while (yes == 0);
                             }
                         }
+
                         catch (Exception)
                         {
                             Console.WriteLine("Введите число!");
                         }
                     }
-                    while (yes);
-                }
-                if (checkMenu == 3)
-                {
-                    newStore.CreateOrder();
                 }
                 if (checkMenu == 4)
                 {
+                    newStore.CreateOrder();
+                }
+                if (checkMenu == 5)
+                {
                     exit = true;
+                    Console.WriteLine("Покупки завершены");
                 }
             }
         }
@@ -184,6 +217,8 @@ namespace OnlineShop
                         return 3;
                     case 4:
                         return 4;
+                    case 5:
+                        return 5;
                     default:
                         Console.WriteLine("\nВведите число из списка!\n");
                         Console.Write("Ваш выбор: ");
@@ -198,9 +233,15 @@ namespace OnlineShop
             }
         }
 
-        static bool IsYes(string answer)
+        static int IsYes(string answer)
         {
-            return answer.ToLower() == "да";
+            if (answer.ToLower() == "да")
+                return 1;
+            else if (answer.ToLower() == "нет")
+                return 2;
+            else
+                Console.WriteLine("Введите да/нет!");
+            return 0;
         }
     }
 }

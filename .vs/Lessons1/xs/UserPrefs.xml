@@ -1,9 +1,9 @@
-﻿<Properties StartupConfiguration="{4479A365-2592-440A-8394-0297AE9BAD41}|Default">
+﻿<Properties GitUserInfo="UsingGIT" StartupConfiguration="{4479A365-2592-440A-8394-0297AE9BAD41}|Default">
   <MonoDevelop.Ide.ItemProperties.OnlineShop PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.ItemProperties.StepikPractice PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="OnlineShop/Program.cs">
+  <MonoDevelop.Ide.Workbench>
     <Files>
-      <File FileName="OnlineShop/Program.cs" Line="150" Column="65" />
+      <File FileName="OnlineShop/Program.cs" Line="242" Column="17" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
