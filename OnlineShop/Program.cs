@@ -14,11 +14,10 @@ namespace OnlineShop
             {
                 Name = name;
                 Password = password;
-
+                Orders = new List<Order>();
             }
             public void AddOrder(Order newOrder)
             {
-                Orders = new List<Order>();
                 Orders.Add(newOrder);
             }
 

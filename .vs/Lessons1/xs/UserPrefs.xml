@@ -3,13 +3,15 @@
   <MonoDevelop.Ide.ItemProperties.StepikPractice PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workbench>
     <Files>
-      <File FileName="OnlineShop/Program.cs" Line="210" Column="77" />
+      <File FileName="OnlineShop/Program.cs" Line="20" Column="14" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Lessons1" expanded="True">
-            <Node name="OnlineShop" expanded="True" selected="True" />
+            <Node name="OnlineShop" expanded="True">
+              <Node name="Program.cs" selected="True" />
+            </Node>
           </Node>
         </State>
       </Pad>
