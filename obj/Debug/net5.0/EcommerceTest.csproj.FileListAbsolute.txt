@@ -1,0 +1,15 @@
+/Users/igorpopov/RiderProjects/EcommerceTest/EcommerceTest/bin/Debug/net5.0/EcommerceTest.deps.json
+/Users/igorpopov/RiderProjects/EcommerceTest/EcommerceTest/bin/Debug/net5.0/EcommerceTest.runtimeconfig.json
+/Users/igorpopov/RiderProjects/EcommerceTest/EcommerceTest/bin/Debug/net5.0/EcommerceTest.runtimeconfig.dev.json
+/Users/igorpopov/RiderProjects/EcommerceTest/EcommerceTest/bin/Debug/net5.0/EcommerceTest.dll
+/Users/igorpopov/RiderProjects/EcommerceTest/EcommerceTest/bin/Debug/net5.0/ref/EcommerceTest.dll
+/Users/igorpopov/RiderProjects/EcommerceTest/EcommerceTest/bin/Debug/net5.0/EcommerceTest.pdb
+/Users/igorpopov/RiderProjects/EcommerceTest/EcommerceTest/obj/Debug/net5.0/EcommerceTest.csprojAssemblyReference.cache
+/Users/igorpopov/RiderProjects/EcommerceTest/EcommerceTest/obj/Debug/net5.0/EcommerceTest.GeneratedMSBuildEditorConfig.editorconfig
+/Users/igorpopov/RiderProjects/EcommerceTest/EcommerceTest/obj/Debug/net5.0/EcommerceTest.AssemblyInfoInputs.cache
+/Users/igorpopov/RiderProjects/EcommerceTest/EcommerceTest/obj/Debug/net5.0/EcommerceTest.AssemblyInfo.cs
+/Users/igorpopov/RiderProjects/EcommerceTest/EcommerceTest/obj/Debug/net5.0/EcommerceTest.csproj.CoreCompileInputs.cache
+/Users/igorpopov/RiderProjects/EcommerceTest/EcommerceTest/obj/Debug/net5.0/EcommerceTest.dll
+/Users/igorpopov/RiderProjects/EcommerceTest/EcommerceTest/obj/Debug/net5.0/ref/EcommerceTest.dll
+/Users/igorpopov/RiderProjects/EcommerceTest/EcommerceTest/obj/Debug/net5.0/EcommerceTest.pdb
+/Users/igorpopov/RiderProjects/EcommerceTest/EcommerceTest/obj/Debug/net5.0/EcommerceTest.genruntimeconfig.cache
